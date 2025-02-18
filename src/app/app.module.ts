@@ -10,18 +10,21 @@ import { ListTachesComponent } from './taches/list-taches/list-taches.component'
 import { FormsModule } from '@angular/forms';
 import { TachesModule } from './taches/taches.module';
 import { CommonModule } from '@angular/common';
+import { Users } from './users/users';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListUsersComponent,
     BorderCardDirective,
     ListTachesComponent,
   ],
   imports: [
     BrowserModule,
     CommonModule, // ✅ Importer CommonModule pour *ngIf et autres directives    FormsModule,
+    FormsModule, // Ajoute FormsModule ici
     TachesModule,
+    UsersModule,
     AppRoutingModule
   ],
   providers: [provideHttpClient()],

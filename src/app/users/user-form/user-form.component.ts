@@ -1,23 +1,32 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Users } from '../users';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'form',
+  selector: 'app-user-form',
   standalone: false,
   templateUrl: './user-form.component.html',
   styleUrl: './user-form.component.css'
 })
-export class UserFormComponent {
+export class UserFormComponent  implements OnInit{
+  
 
-  @Input() user: Users;// donc  notre composant peut prendre un pokemon en paramettre
+  @Input() user: Users
 
-  constructor(private userServie: UsersService , private router: Router){
-  }
+  constructor(private userService: UsersService, 
+    private  router: Router
+  ){};
+  ngOnInit(): void {
+    this.user = new Users();
+      
+  };
 
   onSubmit(){
-    this.userServie.addUsers(this.user).subscribe()
+
+    this.userService.addUsers(this.user).subscribe();
+    this.router.navigate(['/Users']);
+
 
   }
 

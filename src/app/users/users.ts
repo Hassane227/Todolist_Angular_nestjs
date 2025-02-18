@@ -11,12 +11,10 @@ export class Users {
 
     // ✅ Ajout du constructeur par défaut
     constructor() {
-        this.id = 0;
         this.nom = "";
         this.prenom = "";
         this.Matricule = "";
         this.Email = "";
         this.age = 0;
-        this.tachesUser = [];
     }
 }
