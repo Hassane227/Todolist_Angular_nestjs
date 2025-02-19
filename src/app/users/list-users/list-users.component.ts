@@ -24,5 +24,12 @@ export class ListUsersComponent implements OnInit{
       
   }
 
+  gotoUserEdit(user: Users){
+
+    
+    this.router.navigate(['edit/user/', user.id])
+
+  }
+
 
 }

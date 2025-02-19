@@ -12,20 +12,33 @@ import { Router } from '@angular/router';
 export class UserFormComponent  implements OnInit{
   
 
-  @Input() user: Users
+  @Input() user: Users;
+  isAddform: boolean;
 
   constructor(private userService: UsersService, 
     private  router: Router
   ){};
   ngOnInit(): void {
-    this.user = new Users();
+
+    this.isAddform = this.router.url.includes('add');
       
   };
 
   onSubmit(){
+    
+    if(this.isAddform){
+      this.userService.addUsers(this.user).subscribe(
+        (user : Users)=> this.router.navigate(['/Users'])
 
-    this.userService.addUsers(this.user).subscribe();
-    this.router.navigate(['/Users']);
+      );
+
+    }else{
+      this.userService.UpdateUSer(this.user).subscribe(
+        (user : Users)=> this.router.navigate(['/Users'])
+
+      )
+    }
+
 
 
   }

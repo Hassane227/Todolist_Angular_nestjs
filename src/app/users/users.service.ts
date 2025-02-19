@@ -23,7 +23,7 @@ export class UsersService{
 
   }
 
-  addUsers( user: Users):Observable<Users| null>{
+  addUsers( user: Users):Observable<Users | any>{
 
     const httpOptions = {
           headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -39,6 +39,36 @@ export class UsersService{
     )
 
   } 
+
+  getOneUser(id: number):Observable<Users | undefined>{
+
+    return this.http.get<Users>(`${this.ApiUrl}/${id}`).pipe(
+      tap((reponse)=>console.log(reponse)),
+      catchError((err)=>{
+        console.log('on a pas put recuperer le user'+ err);
+        return of(undefined)
+      })
+    ) 
+  }
+
+  UpdateUSer( user: Users): Observable<Users|any>{
+
+    const httpOptions={
+      headers: new HttpHeaders({'content-type': 'application/json'})
+    }
+
+    return this.http.put(`${this.ApiUrl}/${user.id}`,user, httpOptions).pipe(
+      tap((reponse)=>console.log(reponse)),
+      catchError((err)=>{
+        console.log(('une erreur se produit'+err));
+        return of(null);
+      })
+
+
+      )
+    
+
+  }
 
   
 }
