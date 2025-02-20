@@ -38,5 +38,34 @@ private ApiUrl = 'http://localhost:3000/taches'
     );
 }
 
+getOneTache(id : number): Observable<Tache | any>{
+  return this.http.get<Tache>(`${this.ApiUrl}/${id}`).pipe(
+    tap((reponse)=> console.log(reponse))
+    ,
+    catchError((err)=>{
+      console.log('on a eu une erreur lors de la recuperation du user : '+err);
+      return of(null)
+    })
+  )
+
+}
+
+updateTache(newTache: Tache): Observable<Tache|any>{
+
+
+  const httpOptions={
+    headers: new HttpHeaders({'content-type': 'application/json'})
+  } ;
+   return this.http.put(`${this.ApiUrl}/${newTache.id_taches}`, newTache, httpOptions).pipe(
+    tap((reponse)=>console.log(reponse)),
+    catchError((err)=>{
+      console.log(err);
+      return of(null)
+    })
+   )
+
+
+}
+
 
 }

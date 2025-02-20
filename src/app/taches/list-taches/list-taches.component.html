@@ -12,12 +12,16 @@
             <th>
                 is done
             </th>
+            <th>
+                Editer
+            </th>
         </thead>
         <tbody>
             <tr *ngFor="let tache of Taches" class="hoverable striped" BorderCard="blue">
                 <td>{{tache.title}}</td>
                 <td>{{tache.description}}</td>
                 <td>{{tache.isDone}}</td>
+                <td> <a class="waves-effect  indigo darken-4 btn" (click)="goToEdite(tache) ">Editer</a></td>
                 
             </tr>
         </tbody>

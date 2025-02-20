@@ -7,14 +7,16 @@ import { AjoutertacheComponent } from './taches/ajoutertache/ajoutertache.compon
 import { UserFormComponent } from './users/user-form/user-form.component';
 import { combineLatest } from 'rxjs';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { EditTacheComponent } from './taches/edit-tache/edit-tache.component';
 
 const routes: Routes = [
   {path:'edit/user/:id',component: EditUserComponent},
 
   { path: 'Users' , component: ListUsersComponent},
   {path: 'add/user' , component: UserFormComponent},
-  {path:'taches', component: ListTachesComponent},
+  {path:'edit/tache/:id', component: EditTacheComponent},
   {path:'add/taches', component: AjoutertacheComponent},
+  {path:'taches', component: ListTachesComponent},
   {path: '' , redirectTo:'Users', pathMatch:'full'},// pour la liste par defaut on laisse le path vide et mettre une redirectionTo ='le chemin' 
 
 ];

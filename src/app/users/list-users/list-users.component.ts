@@ -30,6 +30,12 @@ export class ListUsersComponent implements OnInit{
     this.router.navigate(['edit/user/', user.id])
 
   }
+deleteUser(id :  number){
 
+this.userServices.delete(+id).subscribe();
+this.router.navigate(['/Users'])
+
+
+}
 
 }

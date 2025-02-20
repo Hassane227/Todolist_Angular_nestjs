@@ -1,3 +1,4 @@
+<h2 class="center " id="titre">Liste des utilisateurs</h2>
 
 <div class="container center-align m4 ">
     <div class="card-content " style="margin-top: 50px;">
@@ -19,7 +20,9 @@
         <td>{{ user.Matricule }}</td>
         <td>{{ user.Email }}</td>
         <td>{{ user.age }}</td>
-        <td> <a class="waves-effect orange darken-4 btn" (click)=" gotoUserEdit(user)">Editer</a></td>
+        <td> <a class="waves-effect  indigo darken-4 btn" (click)=" gotoUserEdit(user)">Editer</a></td>
+        <td> <a class="waves-effect orange darken-4 btn" (click)="deleteUser(user.id)">Supprimer</a></td>
+
       </tr>
     </tbody>
   </table>

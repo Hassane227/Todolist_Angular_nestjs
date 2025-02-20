@@ -70,5 +70,16 @@ export class UsersService{
 
   }
 
+delete(id: number): Observable<any>{
+
+  return this.http.delete(`${this.ApiUrl}/${id}`).pipe(
+    tap((reponse)=> console.log(reponse)),
+    catchError((err)=>{
+      console.log('on n\'a pas put supprimer : '+err);
+      return of(null);
+    })
+  )
+
+}
   
 }
