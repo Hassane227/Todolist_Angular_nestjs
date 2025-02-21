@@ -67,5 +67,17 @@ updateTache(newTache: Tache): Observable<Tache|any>{
 
 }
 
+deletTache(id: number): Observable<Tache | any>{
+
+  return this.http.delete(`${this.ApiUrl}/${id}`).pipe(
+    tap((reponse)=>console.log(reponse)),
+    catchError((err)=>{
+      console.log("une erreur se produit lors de la suppresion de la tache : "+err);
+      return of(null)
+
+    })
+  )
+}
+
 
 }

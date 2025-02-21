@@ -5,13 +5,12 @@ export class Tache {
   title: string;
   description: string;
   isDone: boolean;
-  personneTacheid: Users;
-
+  personneTacheid?: Users // ✅ Devient optionnel
   constructor(
     title: string = 'Nouvelle tâche',
     description: string = 'Description par défaut',
     isDone: boolean = false,
-    personneTacheid: Users = new Users() // Assurez-vous que Users a un constructeur approprié
+    personneTacheid?: Users // ✅ Devient optionnel
   ) {
     this.title = title;
     this.description = description;

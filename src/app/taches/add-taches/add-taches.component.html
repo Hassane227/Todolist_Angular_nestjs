@@ -1,53 +1,45 @@
 <form *ngIf="tache" (ngSubmit)="onSubmit()" #addTache="ngForm">
-    <div class="row">
-      <div class="col s8 offset-s2">
-        <div class="card-panel">
+  <div class="row">
+    <div class="col s8 offset-s2">
+      <div class="card-panel">
+        <!-- title -->
+        <div class="form-group">
+          <label for="title">title</label>
+          <input type="text" class="form-control" id="title"
+                 required [(ngModel)]="tache.title" name="title" #title="ngModel">
+          <div [hidden]="title.valid || title.pristine" class="card-panel red accent-1">
+          </div>
+        </div>
 
-          <!-- title -->
-          <div class="form-group">
-            <label for="title">title</label>
-            <input type="text" class="form-control" id="title"
-                    required
-                   [(ngModel)]="tache.title" name="title"
-                   #title="ngModel">
-               <!-- si l'utilisateur a mal rensengner le nom et name.pristine permet de valider -->
-            <div [hidden]="title.valid || title.pristine"
-                  class="card-panel red accent-1">
-            </div>
+        <!-- description -->
+        <div class="form-group">
+          <label for="description">description</label>
+          <input type="text" class="form-control" id="description"
+                 required [(ngModel)]="tache.description" name="description" #description="ngModel">
+          <div [hidden]="description.valid || description.pristine" class="card-panel red accent-1">
           </div>
+        </div>
 
-           <!-- description -->
-           <div class="form-group">
-            <label for="description">description</label>
-            <input type="text" class="form-control" id="description"
-                    required
-                   [(ngModel)]="tache.description" name="description"
-                   #description="ngModel">
-               <!-- si l'utilisateur a mal rensengner le nom et name.pristine permet de valider -->
-            <div [hidden]="description.valid || description.pristine"
-                  class="card-panel red accent-1">
-            </div>
-          </div>
-          
-          
-          
-          
-        
-          
-    
-          <!-- Submit button -->
-          <div class="divider"></div>
-          <div class="section center">
-            <button type="submit"
-              class="waves-effect waves-light btn"
-              [disabled]="!addTache.form.valid">
-              Valider</button>
-          </div>
-    
+        <!-- État de la tâche -->
+        <div class="input-field">
+          <select [(ngModel)]="tache.isDone" name="isDone" #isDone="ngModel">
+            <option [value]="false" selected>Non terminée</option>
+            <option [value]="true">Terminée</option>
+          </select>
+          <label>État de la tâche</label>
+        </div>
+
+        <!-- Submit button -->
+        <div class="divider"></div>
+        <div class="section center">
+          <button type="submit" class="waves-effect waves-light btn" [disabled]="!addTache.form.valid">
+            Valider
+          </button>
         </div>
       </div>
     </div>
-  </form>
-  <h3 *ngIf="!tache" class="center">
-      y a aucune tache
-  </h3>
+  </div>
+</form>
+<h3 *ngIf="!tache" class="center">
+  Aucune tâche
+</h3>

@@ -14,9 +14,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddTachesComponent  implements OnInit{
 
-  @Input() tache: Tache;
-
-  user: Users[];
+  @Input() tache: Tache = { 
+    id_taches: 0, 
+    title: '', 
+    description: '', 
+    isDone: false,  // Assure-toi que isDone est bien initialisé
+    personneTacheid: new Users()
+  };  user: Users[];
 
   isAddForm:  boolean;
 

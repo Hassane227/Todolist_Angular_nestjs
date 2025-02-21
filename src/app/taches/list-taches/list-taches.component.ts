@@ -33,6 +33,13 @@ export class ListTachesComponent implements OnInit{
     console.log("Navigation vers :", `/edit/tache/${Tache.id_taches}`);
     this.router.navigate([`/edit/tache/${Tache.id_taches}`]);
   }
+
+  deletTache(id: number){
+        this.tachesServices.deletTache(id).subscribe(
+          (reponse)=>this.router.navigate(['/taches'])
+
+        )
+  }
   
   
 
