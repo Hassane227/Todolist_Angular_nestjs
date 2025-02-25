@@ -9,12 +9,20 @@ export class Users {
     age: number;
     tachesUser: Tache[];
 
-    // ✅ Ajout du constructeur par défaut
-    constructor() {
-        this.nom = "";
-        this.prenom = "";
-        this.Matricule = "";
-        this.Email = "";
-        this.age = 0;
+    // ✅ Constructeur avec arguments par défaut
+    constructor(
+        nom: string = "",
+        prenom: string = "",
+        Matricule: string = "",
+        Email: string = "",
+        age: number = 0,
+        tachesUser: Tache[] = []
+    ) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.Matricule = Matricule;
+        this.Email = Email;
+        this.age = age;
+        this.tachesUser = tachesUser;
     }
 }

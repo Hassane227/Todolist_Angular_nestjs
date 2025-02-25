@@ -18,7 +18,7 @@ export class AddTachesComponent  implements OnInit{
     id_taches: 0, 
     title: '', 
     description: '', 
-    isDone: false,  // Assure-toi que isDone est bien initialisé
+    isDone: true,  // Assure-toi que isDone est bien initialisé
     personneTacheid: new Users()
   };  user: Users[];
 
@@ -31,13 +31,16 @@ export class AddTachesComponent  implements OnInit{
   ngOnInit(): void {
 
     this.isAddForm = this.router.url.includes('add');
+      console.log("Valeur initiale de tache.isDone:", this.tache?.isDone);
+  
+  
     
       
   }
   onSubmit(){
 
     if(this.isAddForm){
-    this.tacheService.addTaches(this.tache,1).subscribe(
+    this.tacheService.addTaches(this.tache,2).subscribe(
        (reponse)=> this.router.navigate(['/taches'])
     )}
     else{

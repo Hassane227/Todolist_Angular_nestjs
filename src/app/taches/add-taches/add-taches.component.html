@@ -20,15 +20,16 @@
           </div>
         </div>
 
-        <!-- État de la tâche -->
-        <div class="input-field">
-          <select [(ngModel)]="tache.isDone" name="isDone" #isDone="ngModel">
-            <option [value]="false" selected>Non terminée</option>
-            <option [value]="true">Terminée</option>
-          </select>
-          <label>État de la tâche</label>
-        </div>
-
+        <select class="form-select" [(ngModel)]="tache.isDone" name="isDone" #isDone="ngModel" required>
+          <option [ngValue]="null" disabled>Etat de la tâche</option>
+          <option [ngValue]="false">Non terminée</option>
+          <option [ngValue]="true">Terminée</option>
+      </select>
+      <div *ngIf="isDone.invalid && isDone.touched" class="card-panel red accent-1">
+          Veuillez sélectionner un état.
+      </div>
+      
+      
         <!-- Submit button -->
         <div class="divider"></div>
         <div class="section center">

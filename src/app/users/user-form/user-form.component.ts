@@ -21,6 +21,10 @@ export class UserFormComponent  implements OnInit{
   ngOnInit(): void {
 
     this.isAddform = this.router.url.includes('add');
+    if (this.isAddform) {
+      // Initialiser 'user' pour le formulaire d'ajout
+      this.user = new Users();
+    }
       
   };
 

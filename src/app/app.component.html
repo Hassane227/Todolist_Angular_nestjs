@@ -1,40 +1,20 @@
-<script>
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
 
-  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-  // var collapsibleElem = document.querySelector('.collapsible');
-  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
-  // Or with jQuery
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-</script>
-
-<nav> <!-- navbar content here  --> </nav>
-
-  <ul id="slide-out" class="sidenav">
-    <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
+<nav class="navbar navbar-expand-lg navbar-dark indigo darken-4 " i>
+  <div class="container">
+      <a class="navbar-brand" href="#">TO DO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-center">
+              <li class="nav-item"><a class="nav-link active" routerLink="/taches">List Tache</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="/Users">Liste Users</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="/add/taches">add tache</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="/add/user" >add User</a></li>
+          </ul>
       </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturkgmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
-  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
 
@@ -59,7 +39,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © 2014 Copyright Text
+      © 2025 Copyright by Adamou Moussa Hassane
       <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
       </div>
     </div>
