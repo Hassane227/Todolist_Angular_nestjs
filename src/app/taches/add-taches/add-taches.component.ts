@@ -20,7 +20,8 @@ export class AddTachesComponent  implements OnInit{
     description: '', 
     isDone: true,  // Assure-toi que isDone est bien initialisé
     personneTacheid: new Users()
-  };  user: Users[];
+  };  users: Users[];
+  selectedUserId: number;
 
   isAddForm:  boolean;
 
@@ -32,6 +33,8 @@ export class AddTachesComponent  implements OnInit{
 
     this.isAddForm = this.router.url.includes('add');
       console.log("Valeur initiale de tache.isDone:", this.tache?.isDone);
+
+      this.userService.getAllUsers().subscribe((reponse)=>this.users=reponse)
   
   
     
@@ -40,7 +43,7 @@ export class AddTachesComponent  implements OnInit{
   onSubmit(){
 
     if(this.isAddForm){
-    this.tacheService.addTaches(this.tache,2).subscribe(
+    this.tacheService.addTaches(this.tache,this.selectedUserId).subscribe(
        (reponse)=> this.router.navigate(['/taches'])
     )}
     else{

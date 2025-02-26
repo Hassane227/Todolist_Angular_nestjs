@@ -2,34 +2,54 @@
   <div class="row">
     <div class="col s8 offset-s2">
       <div class="card-panel">
+
         <!-- title -->
         <div class="form-group">
-          <label for="title">title</label>
+          <label for="title">Title</label>
           <input type="text" class="form-control" id="title"
                  required [(ngModel)]="tache.title" name="title" #title="ngModel">
-          <div [hidden]="title.valid || title.pristine" class="card-panel red accent-1">
+          <div *ngIf="title.invalid && title.touched" class="card-panel red accent-1">
+            Veuillez entrer un titre.
           </div>
         </div>
 
         <!-- description -->
         <div class="form-group">
-          <label for="description">description</label>
+          <label for="description">Description</label>
           <input type="text" class="form-control" id="description"
                  required [(ngModel)]="tache.description" name="description" #description="ngModel">
-          <div [hidden]="description.valid || description.pristine" class="card-panel red accent-1">
+          <div *ngIf="description.invalid && description.touched" class="card-panel red accent-1">
+            Veuillez entrer une description.
           </div>
         </div>
 
-        <select class="form-select" [(ngModel)]="tache.isDone" name="isDone" #isDone="ngModel" required>
-          <option [ngValue]="null" disabled>Etat de la tâche</option>
-          <option [ngValue]="false">Non terminée</option>
-          <option [ngValue]="true">Terminée</option>
-      </select>
-      <div *ngIf="isDone.invalid && isDone.touched" class="card-panel red accent-1">
-          Veuillez sélectionner un état.
-      </div>
-      
-      
+        <!-- Pour les utilisateurs -->
+        <div class="form-group">
+          <label for="user">Utilisateur</label>
+          <select class="form-select" [(ngModel)]="selectedUserId" name="user" #userSelect="ngModel" required>
+            <option [ngValue]="null" disabled selected>Choisir un utilisateur</option>
+            <option *ngFor="let user of users" [ngValue]="user.id">
+              {{ user.nom }} - {{ user.prenom }}
+            </option>
+          </select>
+          <div *ngIf="userSelect.invalid && userSelect.touched" class="card-panel red accent-1 white-text">
+            Veuillez sélectionner un utilisateur.
+          </div>
+        </div>
+
+        <!-- Etat de la tâche -->
+        <div class="form-group">
+          <label for="isDone">État de la tâche</label>
+          <select class="form-select" [(ngModel)]="tache.isDone" name="isDone" #isDoneSelect="ngModel" required>
+            <option [ngValue]="null" disabled selected>Choisir un état</option>
+            <option [ngValue]="false">Non terminée</option>
+            <option [ngValue]="true">Terminée</option>
+          </select>
+          <div *ngIf="isDoneSelect.invalid && isDoneSelect.touched" class="card-panel red accent-1">
+            Veuillez sélectionner un état.
+          </div>
+        </div>
+
         <!-- Submit button -->
         <div class="divider"></div>
         <div class="section center">
@@ -37,10 +57,12 @@
             Valider
           </button>
         </div>
+
       </div>
     </div>
   </div>
 </form>
+
 <h3 *ngIf="!tache" class="center">
   Aucune tâche
 </h3>
