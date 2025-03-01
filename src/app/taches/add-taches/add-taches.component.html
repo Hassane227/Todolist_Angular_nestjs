@@ -25,7 +25,7 @@
 
         <!-- Pour les utilisateurs -->
         <div class="form-group">
-          <label for="user">Utilisateur</label>
+          <label for="user">UserS</label>
           <select class="form-select" [(ngModel)]="selectedUserId" name="user" #userSelect="ngModel" required>
             <option [ngValue]="null" disabled selected>Choisir un utilisateur</option>
             <option *ngFor="let user of users" [ngValue]="user.id">
@@ -46,7 +46,7 @@
             <option [ngValue]="true">Terminée</option>
           </select>
           <div *ngIf="isDoneSelect.invalid && isDoneSelect.touched" class="card-panel red accent-1">
-            Veuillez sélectionner un état.
+            Veuillez sélectionner un état de la tache.
           </div>
         </div>
 
