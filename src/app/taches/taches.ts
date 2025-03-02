@@ -8,7 +8,7 @@ export class Tache {
   personneTacheid?: Users // ✅ Devient optionnel
   constructor(
     title: string = 'Nouvelle tâche',
-    description: string = 'Description par défaut',
+    description: string = 'Description par défaut de la tache',
     isDone: boolean = false,
     personneTacheid?: Users // ✅ Devient optionnel
   ) {
