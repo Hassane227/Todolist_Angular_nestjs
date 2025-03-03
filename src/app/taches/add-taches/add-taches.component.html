@@ -19,7 +19,7 @@
           <input type="text" class="form-control" id="description"
                  required [(ngModel)]="tache.description" name="description" #description="ngModel">
           <div *ngIf="description.invalid && description.touched" class="card-panel red accent-1">
-            Veuillez entrer une description.
+            Veuillez entrer une description de la tache.
           </div>
         </div>
 
